@@ -1,7 +1,7 @@
 {
-  "name": "furkanmeclis/laravel-paytr",
+  "name": "lozzano/laravel-paytr",
   "type": "library",
-  "description": "Updated and Maintained Laravel Paytr Payment Gateway for Laravel 10, 11 & 12",
+  "description": "Updated and Maintained Laravel Paytr Payment Gateway for Laravel 10, 11, 12 & 13",
   "license": "MIT",
   "keywords": [
     "php",
@@ -16,7 +16,8 @@
     "eft api",
     "laravel 10",
     "laravel 11",
-    "laravel 12"
+    "laravel 12",
+    "laravel 13"
   ],
   "authors": [
     {
@@ -26,14 +27,14 @@
   ],
   "require": {
     "php": "^8.2",
-    "guzzlehttp/guzzle": "^7.0.1",
-    "illuminate/collections": "^10.0|^11.0|^12.0",
-    "illuminate/http": "^10.0|^11.0|^12.0",
-    "illuminate/support": "^10.0|^11.0|^12.0"
+    "guzzlehttp/guzzle": "^8.2.0",
+    "illuminate/collections": "^10.0|^11.0|^12.0|^13.0",
+    "illuminate/http": "^10.0|^11.0|^12.0|^13.0",
+    "illuminate/support": "^10.0|^11.0|^12.0|^13.0"
   },
   "autoload": {
     "psr-4": {
-      "FurkanMeclis\\Paytr\\": "src/"
+      "Lozzano\\Paytr\\": "src/"
     }
   },
   "config": {
@@ -42,7 +43,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "FurkanMeclis\\Paytr\\PaytrServiceProvider"
+        "Lozzano\\Paytr\\PaytrServiceProvider"
       ]
     }
   },
