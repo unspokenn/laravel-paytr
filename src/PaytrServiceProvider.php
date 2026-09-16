@@ -8,7 +8,7 @@
  * @link      https://github.com/furkanmeclis/laravel-paytr
  */
 
-namespace FurkanMeclis\Paytr;
+namespace Lozzano\Paytr;
 
 use Illuminate\Support\ServiceProvider;
 
