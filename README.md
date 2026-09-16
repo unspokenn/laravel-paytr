@@ -1,7 +1,7 @@
 ﻿# Laravel Paytr (Güncel ve Kapsamlı Sürüm)
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/furkanmeclis/laravel-paytr.svg?style=flat-square)](https://packagist.org/packages/furkanmeclis/laravel-paytr)
-[![Total Downloads](https://img.shields.io/packagist/dt/furkanmeclis/laravel-paytr.svg?style=flat-square)](https://packagist.org/packages/furkanmeclis/laravel-paytr)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/Lozzano/laravel-paytr.svg?style=flat-square)](https://packagist.org/packages/Lozzano/laravel-paytr)
+[![Total Downloads](https://img.shields.io/packagist/dt/Lozzano/laravel-paytr.svg?style=flat-square)](https://packagist.org/packages/Lozzano/laravel-paytr)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
 Bu paket, **Paytr** ödeme altyapısını modern Laravel (10, 11, 12+) projelerinize kolayca entegre edebilmeniz için geliştirilmiştir. `past/paytr` paketinin kod tabanı kullanılarak **Furkan Meclis** tarafından yeniden yapılandırılmış, güncellenmiş ve bakımı yapılmaktadır.
@@ -17,7 +17,7 @@ Paket, Paytr'ın **Iframe API**, **Direct API** ve **Iframe Havale/EFT** gibi t�
 - [Yapılandırma](#yapılandırma)
   - [Yapılandırma Dosyasını Yayınlama](#yapılandırma-dosyasını-yayınlama)
   - [Ortam Değişkenleri (.env)](#ortam-değişkenleri-env)
-- [Temel Kullanım (`FurkanMeclis\Paytr\Payment`)](#temel-kullanım-furkanmeclispaytrpayment)
+- [Temel Kullanım (`Lozzano\Paytr\Payment`)](#temel-kullanım-Lozzanopaytrpayment)
   - [Iframe API ile Ödeme Alma](#1-iframe-api-ile-ödeme-alma)
   - [Direct API (Doğrudan Ödeme)](#2-direct-api-doğrudan-ödeme)
   - [Iframe Havale/EFT ile Ödeme](#3-iframe-havaleeft-ile-ödeme)
@@ -42,7 +42,7 @@ Paket, Paytr'ın **Iframe API**, **Direct API** ve **Iframe Havale/EFT** gibi t�
 
 Composer kullanarak paketi projenize kolayca ekleyebilirsiniz:
 ```bash
-composer require furkanmeclis/laravel-paytr
+composer require Lozzano/laravel-paytr
 ```
 
 ---
@@ -53,7 +53,7 @@ composer require furkanmeclis/laravel-paytr
 Paketin yapılandırma dosyasını (`paytr.php`) kendi projenizin `config` dizinine kopyalamak için aşağıdaki Artisan komutunu çalıştırın. Bu, varsayılan ayarları değiştirmenize olanak tanır.
 
 ```bash
-php artisan vendor:publish --provider="FurkanMeclis\Paytr\PaytrServiceProvider"
+php artisan vendor:publish --provider="Lozzano\Paytr\PaytrServiceProvider"
 ```
 
 ### Ortam Değişkenleri (.env)
@@ -81,7 +81,7 @@ PAYTR_TIMEOUT=60
 
 ---
 
-## Temel Kullanım (`FurkanMeclis\Paytr\Payment`)
+## Temel Kullanım (`Lozzano\Paytr\Payment`)
 
 Bu sınıf, ödeme işlemleri oluşturmak için ana ve önerilen yöntemdir. Oldukça esnek ve zincirleme metot (`fluent interface`) kullanımını destekler.
 
@@ -89,11 +89,11 @@ Bu sınıf, ödeme işlemleri oluşturmak için ana ve önerilen yöntemdir. Old
 Bu en yaygın yöntemdir. Kullanıcı, sitenizden ayrılmadan güvenli bir Paytr iframe'i içinde ödeme yapar.
 
 ```php
-use FurkanMeclis\Paytr\Payment;
-use FurkanMeclis\Paytr\Enums\TransactionType;
-use FurkanMeclis\Paytr\Request\Basket;
-use FurkanMeclis\Paytr\Request\Order;
-use FurkanMeclis\Paytr\Request\Product;
+use Lozzano\Paytr\Payment;
+use Lozzano\Paytr\Enums\TransactionType;
+use Lozzano\Paytr\Request\Basket;
+use Lozzano\Paytr\Request\Order;
+use Lozzano\Paytr\Request\Product;
 
 public function startPayment()
 {
@@ -116,7 +116,7 @@ public function startPayment()
     $order = new Order();
     $order->setUserName('Furkan Meclis')
           ->setUserAddress('Test Adres, No: 1, Daire: 2, İstanbul')
-          ->setEmail('test@furkanmeclis.com')
+          ->setEmail('test@Lozzano.com')
           ->setUserPhone('5551234567')
           ->setUserIp(request()->ip())
           ->setMerchantOrderId('SIPARIS' . time())
@@ -199,7 +199,7 @@ Bu yöntem, ana `Payment` sınıfının `checkHash` metodunu kullanır ve en bas
 // routes/web.php
 
 use Illuminate\Http\Request;
-use FurkanMeclis\Paytr\Payment;
+use Lozzano\Paytr\Payment;
 
 Route::post('/paytr-callback', function () {
     $payment = app(Payment::class);
@@ -234,7 +234,7 @@ Bu, paketin eski yapısından gelen alternatif bir doğrulama yöntemidir.
 // routes/web.php
 
 use Illuminate\Http\Request;
-use FurkanMeclis\Paytr\Request\PaymentVerification;
+use Lozzano\Paytr\Request\PaymentVerification;
 
 Route::post('/paytr-callback', function (Request $request) {
     $verification = new PaymentVerification($request);
@@ -278,7 +278,7 @@ $payment->getOption()->setInstallmentCount(3);
 Varsayılan para birimi TL'dir. Desteklenen diğer para birimlerini `Currency` enum'ı ile ayarlayabilirsiniz.
 
 ```php
-use FurkanMeclis\Paytr\Enums\Currency;
+use Lozzano\Paytr\Enums\Currency;
 
 $payment->getOption()->setCurrency(Currency::EUR);
 ```
@@ -286,25 +286,25 @@ $payment->getOption()->setCurrency(Currency::EUR);
 ---
 
 ## Paket Sınıflarına Genel Bakış
-- `FurkanMeclis\Paytr\Payment`: Ana ödeme sınıfı.
-- `FurkanMeclis\Paytr\PaytrClient`: API istekleri için temel Guzzle istemcisi.
-- `FurkanMeclis\Paytr\Request\Order`: Sipariş detaylarını ve kullanıcı bilgilerini tutar.
-- `FurkanMeclis\Paytr\Request\Basket`: Ürün listesini yönetir.
-- `FurkanMeclis\Paytr\Request\Product`: Tek bir ürünün adını ve fiyatını tutar.
-- `FurkanMeclis\Paytr\Response\PaymentResponse`: API'den dönen yanıtı (HTML veya JSON) yönetir.
-- `FurkanMeclis\Paytr\Enums\*`: `Currency`, `TransactionType` gibi sabit değerleri içeren Enum sınıfları.
+- `Lozzano\Paytr\Payment`: Ana ödeme sınıfı.
+- `Lozzano\Paytr\PaytrClient`: API istekleri için temel Guzzle istemcisi.
+- `Lozzano\Paytr\Request\Order`: Sipariş detaylarını ve kullanıcı bilgilerini tutar.
+- `Lozzano\Paytr\Request\Basket`: Ürün listesini yönetir.
+- `Lozzano\Paytr\Request\Product`: Tek bir ürünün adını ve fiyatını tutar.
+- `Lozzano\Paytr\Response\PaymentResponse`: API'den dönen yanıtı (HTML veya JSON) yönetir.
+- `Lozzano\Paytr\Enums\*`: `Currency`, `TransactionType` gibi sabit değerleri içeren Enum sınıfları.
 
 ---
 
 ## Alternatif Kullanım (`Request\Payment`)
 
-Paket, `past/paytr`'ın orijinal yapısını korumak amacıyla `FurkanMeclis\Paytr\Request\Payment` adında alternatif bir ödeme sınıfı daha içerir. Bu sınıfın kullanımı, ana `Payment` sınıfından farklıdır ve zincirleme metotları desteklemez.
+Paket, `past/paytr`'ın orijinal yapısını korumak amacıyla `Lozzano\Paytr\Request\Payment` adında alternatif bir ödeme sınıfı daha içerir. Bu sınıfın kullanımı, ana `Payment` sınıfından farklıdır ve zincirleme metotları desteklemez.
 
 > **Uyarı:** Bu sınıf, ana `Payment` sınıfıyla benzer işlevlere sahip olduğu için kafa karıştırıcı olabilir. Genellikle ana `Payment` sınıfını kullanmanız önerilir.
 
 **Örnek:**
 ```php
-use FurkanMeclis\Paytr\Request\Payment as RequestPayment;
+use Lozzano\Paytr\Request\Payment as RequestPayment;
 
 $paymentRequest = new RequestPayment();
 $paymentRequest->setUserIp(request()->ip());
