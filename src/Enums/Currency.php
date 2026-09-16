@@ -1,14 +1,5 @@
 <?php
-/**
- * Laravel Paytr
- *
- * @author    Furkan Meclis
- * @copyright 2024 Furkan Meclis
- * @license   MIT
- * @link      https://github.com/furkanmeclis/laravel-paytr
- */
-
-namespace FurkanMeclis\Paytr\Enums;
+namespace Lozzano\Paytr\Enums;
 
 enum Currency: string
 {

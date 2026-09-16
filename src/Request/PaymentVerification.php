@@ -1,18 +1,9 @@
 <?php
-/**
- * Laravel Paytr
- *
- * @author    Furkan Meclis
- * @copyright 2024 Furkan Meclis
- * @license   MIT
- * @link      https://github.com/furkanmeclis/laravel-paytr
- */
-
-namespace FurkanMeclis\Paytr\Request;
+namespace Lozzano\Paytr\Request;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use FurkanMeclis\Paytr\PaytrClient;
+use Lozzano\Paytr\PaytrClient;
 
 class PaymentVerification extends PaytrClient
 {

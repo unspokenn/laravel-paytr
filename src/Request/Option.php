@@ -1,20 +1,11 @@
 <?php
-/**
- * Laravel Paytr
- *
- * @author    Furkan Meclis
- * @copyright 2024 Furkan Meclis
- * @license   MIT
- * @link      https://github.com/furkanmeclis/laravel-paytr
- */
+namespace Lozzano\Paytr\Request;
 
-namespace FurkanMeclis\Paytr\Request;
-
-use FurkanMeclis\Paytr\Enums\CardType;
-use FurkanMeclis\Paytr\Enums\ClientLang;
-use FurkanMeclis\Paytr\Enums\Currency;
-use FurkanMeclis\Paytr\Enums\PaymentType;
-use FurkanMeclis\Paytr\Enums\TransactionType;
+use Lozzano\Paytr\Enums\CardType;
+use Lozzano\Paytr\Enums\ClientLang;
+use Lozzano\Paytr\Enums\Currency;
+use Lozzano\Paytr\Enums\PaymentType;
+use Lozzano\Paytr\Enums\TransactionType;
 
 class Option
 {

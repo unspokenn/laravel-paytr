@@ -1,23 +1,14 @@
 <?php
-/**
- * Laravel Paytr
- *
- * @author    Furkan Meclis
- * @copyright 2024 Furkan Meclis
- * @license   MIT
- * @link      https://github.com/furkanmeclis/laravel-paytr
- */
-
-namespace FurkanMeclis\Paytr;
+namespace Lozzano\Paytr;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-use FurkanMeclis\Paytr\Enums\PaymentType;
-use FurkanMeclis\Paytr\Enums\TransactionType;
-use FurkanMeclis\Paytr\Request\Config;
-use FurkanMeclis\Paytr\Request\Option;
-use FurkanMeclis\Paytr\Request\Order;
-use FurkanMeclis\Paytr\Response\PaymentResponse;
+use Lozzano\Paytr\Enums\PaymentType;
+use Lozzano\Paytr\Enums\TransactionType;
+use Lozzano\Paytr\Request\Config;
+use Lozzano\Paytr\Request\Option;
+use Lozzano\Paytr\Request\Order;
+use Lozzano\Paytr\Response\PaymentResponse;
 
 class Payment
 {

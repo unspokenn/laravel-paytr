@@ -1,5 +1,5 @@
 {
-  "name": "lozzano/laravel-paytr",
+  "name": "unspokenn/laravel-paytr",
   "type": "library",
   "description": "Updated and Maintained Laravel Paytr Payment Gateway for Laravel 10, 11, 12 & 13",
   "license": "MIT",
@@ -23,6 +23,10 @@
     {
       "name": "Furkan Meclis",
       "email": "urkanmeclis@gmail.com"
+    },
+    {
+      "name": "Sadık Ergüven",
+      "email": "sadikerguven@gmail.com"
     }
   ],
   "require": {
